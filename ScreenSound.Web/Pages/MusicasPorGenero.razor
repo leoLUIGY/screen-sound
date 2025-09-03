@@ -1,5 +1,24 @@
-﻿<h3>MusicasPorGenero</h3>
+﻿@page "/MusicasPorGenero"
+@inject GeneroAPI generoAPI
+
+<h3>MusicasPorGenero</h3>
+@if (generos is not null)
+{
+    <MudGrid>
+        @foreach (var genero in generos)
+        {
+            <MudItem xs="3">
+                <CardGenero Genero="genero" />
+            </MudItem>
+        }
+    </MudGrid>
+}
 
 @code {
+    private ICollection<GeneroResponse>? generos;
+    protected override async Task OnInitializedAsync()
+    {
+        generos = await generoAPI.GetGenerosAsync();
 
+    }
 }

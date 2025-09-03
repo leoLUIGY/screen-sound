@@ -1,0 +1,21 @@
+﻿<MudCard>
+    <MudCardMedia Image="images/cardArtista.png"></MudCardMedia>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h6">@Genero!.Nome</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+ @*    <MudCardContent>
+        <MudText Typo="Typo.body2">Artista/Banda:@Musica!.NomeArtista</MudText>
+    </MudCardContent> *@
+    <MudButton Color="Color.Warning"
+               Variant="Variant.Outlined"
+               Href=@($"/EditarMusica/{Genero!.Nome}")>
+        Detalhes
+    </MudButton>
+</MudCard>
+
+@code {
+    [Parameter]
+    public GeneroResponse? Genero { get; set; }
+}
